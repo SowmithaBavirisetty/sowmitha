@@ -4,7 +4,6 @@ pipeline {
         stage (build) {
             steps {
                 echo "This is build stage"
-                echo "Test fail stage"
                 sh 'exit 1'
             }
         }
