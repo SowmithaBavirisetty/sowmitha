@@ -1,0 +1,38 @@
+kind: "BuildConfig"
+apiVersion: "v1"
+metadata:
+  name: "slack-thread-example-pipeline"
+spec:
+  strategy:
+    jenkinsPipelineStrategy:
+      jenkinsfile: |-
+        slackCfg = [:]
+        slackCfg.baseUrl
+        // Send message as bot user
+        slackCfg.botUser = true
+        // Slack channel where messages are send to
+        slackCfg.channel = "your-channel-here"
+        // Workspace name, https://<workspace>/slack.com
+        slackCfg.teamDomain = "your-domain-here"
+        // Bot User OAuth Access Token from your Jenkins Bot App
+        slackCfg.token = "your-token-here"
+  
+     /**
+         * Send a Slack message.
+         *
+         * @param channelRef Channel reference, if null the default channel is used
+         * @param message Message to send
+         * @return SlackResponse
+         */
+        def send(channelRef, message) {
+            def channel = channelRef ?: slackCfg.channel
+            return slackSend(teamDomain: slackCfg.teamDomain, token: slackCfg.token, baseUrl: slackCfg.baseUrl,
+                botUser: slackCfg.botUser, channel: channel, message: message)
+        }
+  
+        node {
+            def slackResponse = send(null, "Starting a new Slack thread")
+            send(slackResponse?.threadId, "This is thread message #1")
+            send(slackResponse?.threadId, "This is thread message #2")
+        }
+      type: JenkinsPipeline 
