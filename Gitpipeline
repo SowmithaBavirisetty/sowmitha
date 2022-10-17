@@ -7,22 +7,10 @@ pipeline {
                 echo "stage1"
             }
         }
-        stage (test) {
-            steps {
-                echo "This is test stage"
-            }
-        }
-        stage (deploy) {
-            steps {
-                echo "This is deploy stage"
-            }
-        }
         stage (msg) {
          steps {
-            def slackResponse = slackSend(channel: "testslack_euh", message: "Here is the primary message") {
-                 slackSend(channel: slackResponse.threadId, message: "Thread reply #1")
-                 slackSend(channel: slackResponse.threadId, message: "Thread reply #2")
-              }
+              sh 'slack'
+   
            }
         }
     }
