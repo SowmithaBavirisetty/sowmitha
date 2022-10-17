@@ -11,11 +11,11 @@ spec:
         // Send message as bot user
         slackCfg.botUser = true
         // Slack channel where messages are send to
-        slackCfg.channel = "your-channel-here"
+        slackCfg.channel = "testslack_euh"
         // Workspace name, https://<workspace>/slack.com
-        slackCfg.teamDomain = "your-domain-here"
+        slackCfg.teamDomain = "IBM Z"
         // Bot User OAuth Access Token from your Jenkins Bot App
-        slackCfg.token = "your-token-here"
+        slackCfg.token = "slack_token_regression_updates"
   
      /**
          * Send a Slack message.
