@@ -9,7 +9,7 @@ pipeline {
         }
         stage (msg) {
          steps {
-              sh 'slack'
+              sh 'slack.py'
    
            }
         }
