@@ -20,7 +20,7 @@
         def send(channelRef, message) {
             def channel = channelRef ?: slackCfg.channel
             return slackSend(teamDomain: slackCfg.teamDomain, token: slackCfg.token, baseUrl: slackCfg.baseUrl,
-                botUser: slackCfg.botUser, channel: channel, message: message)
+             botUser: slackCfg.botUser, channel: channel, message: message)
         }
   
         node {
@@ -28,4 +28,3 @@
             send(slackResponse?.threadId, "This is thread message #1")
             send(slackResponse?.threadId, "This is thread message #2")
         }
-      type: JenkinsPipeline 
