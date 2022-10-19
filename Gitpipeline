@@ -8,8 +8,10 @@ pipeline {
             }
         }
         stage (msg) {
-         steps {
-              sh 'slack.py'
+         script {
+              def slackResponse = slackSend(channel: "testslack-euh", message: "Here is the primary message")
+              slackSend(channel: slackResponse.threadId, message: "Thread reply #1")
+              slackSend(channel: slackResponse.threadId, message: "Thread reply #2")
    
            }
         }
