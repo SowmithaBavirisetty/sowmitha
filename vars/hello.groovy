@@ -10,7 +10,7 @@ def call(name) {
       scm {
         git {
           remote { url($repo) }
-          branches('', '**/feature*')
+          branches('dsl', '**/feature*')
           scriptPath('hi.groovy')
           extensions { }  // required as otherwise it may try to tag the repo, which you may not want
         }
