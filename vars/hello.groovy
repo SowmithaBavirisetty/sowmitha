@@ -1,27 +1,26 @@
-def call(name) {
- pipelineJob('DSL_Pipeline') {
+def call(variant) {  
+    node {
+     stage("build") {
+      steps {
+        jobDsl scriptText: '''pipelineJob(\"variant1\") {
+        def repo = \'https://github.com/SowmithaBavirisetty/sowmitha.git\'
 
-  //def repo = 'https://github.ibm.com/CryptoCAT/CLiC.git'
-
-  description("Pipeline for $repo")
-
-  definition {
-    cpsScm{
-      scm {
-        git {
-          remote { url($repo) }
-          branches('dsl', '**/feature*')
-          scriptPath('hi.groovy')
-          extensions { }  // required as otherwise it may try to tag the repo, which you may not want
+        description("Pipeline for $repo")
+        definition {
+          cpsScm{
+            scm {
+              git {
+                remote { url(repo) }
+                credentialsId: 'key'
+                branches(\'testing\', \'**/feature*\')
+                scriptPath(\'hi.groovy\')
+                extensions { }  // required as otherwise it may try to tag the repo, which you may not want
+              }
+            }
+          }
         }
-
-        // the single line below also works, but it
-        // only covers the 'master' branch and may not give you
-        // enough control.
-        // git(repo, 'master', { node -> node / 'extensions' << '' } )
+       }'''
       }
     }
-    sandbox()
   }
- }
 }
