@@ -1,4 +1,4 @@
-jobDsl scriptText: '''pipelineJob(\'DSL_Pipeline\') {
+jobDsl scriptText: '''pipelineJob(\'dsl_Pipeline\') {
 
   def repo = \'https://github.com/SowmithaBavirisetty/sowmitha.git\'
 
