@@ -6,7 +6,7 @@ pipeline {
       steps {
         script {
         jobDsl scriptText: ''' 
-        pipelineJob(variant) {
+        pipelineJob('${variant*_}') {
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
 
         description("Pipeline for $repo")
