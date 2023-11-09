@@ -5,7 +5,7 @@ pipeline {
     stage("script") {
       steps {
         script {
-        jobDsl scriptText: ''' def hi = displayName("$repo.variant")
+        jobDsl scriptText: ''' def hi = displayName("$variant.repo")
         pipelineJob(hi) {
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
 
