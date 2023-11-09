@@ -5,8 +5,8 @@ pipeline {
     stage("script") {
       steps {
         script {
-        jobDsl scriptText: ''' 
-        pipelineJob(+variant.repo+) {
+        jobDsl scriptText: ''' def foo = build.buildVariableResolver.resolve("$variant.repo")
+        pipelineJob(foo) {
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
 
         description("Pipeline for $repo")
