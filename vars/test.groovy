@@ -1,3 +1,4 @@
+
 def call(repo) {
 pipeline {
   agent any 
@@ -11,7 +12,7 @@ pipeline {
             scm {
               git {
                 remote { url("${repo}") }
-                branches(\'dsl\', \'**/feature*\')
+                branches(\'testing\', \'**/feature*\')
                 scriptPath(\'hi.groovy\')
                 extensions { }  // required as otherwise it may try to tag the repo, which you may not want
               }
