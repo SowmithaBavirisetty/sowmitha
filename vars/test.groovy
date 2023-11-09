@@ -1,10 +1,10 @@
-def call() {
+def call(reponame) {
 pipeline {
   agent any 
   stages {
     stage("script") {
       steps {
-        jobDsl scriptText: '''pipelineJob(\'dslPipeline\') {
+        jobDsl scriptText: '''pipelineJob(\'${reponame}\') {
         def repo = \'https://github.com/SowmithaBavirisetty/sowmitha.git\'
 
         description("Pipeline for $repo")
