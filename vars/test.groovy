@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage("script") {
       steps {
-        
+        script {
         jobDsl scriptText: ''' 
         pipelineJob(variant) {
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
@@ -24,6 +24,7 @@ pipeline {
           }
         }
        }'''
+      }
       }
     }
   }
