@@ -1,7 +1,7 @@
 def call(variant) {  
     node {
      stage("build") {
-      steps {
+        
         jobDsl scriptText: '''pipelineJob(\"variant1\") {
         def repo = \'https://github.com/SowmithaBavirisetty/sowmitha.git\'
 
@@ -20,7 +20,7 @@ def call(variant) {
           }
         }
        }'''
-      }
+      
     }
   }
 }
