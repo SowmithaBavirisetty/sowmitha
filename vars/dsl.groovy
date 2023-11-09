@@ -1,3 +1,4 @@
+def call(repo) {
 jobDsl scriptText: '''pipelineJob(\'dsl_Pipeline\') {
 
   //def repo = \'https://github.com/SowmithaBavirisetty/sowmitha.git\'
@@ -8,7 +9,7 @@ jobDsl scriptText: '''pipelineJob(\'dsl_Pipeline\') {
     cpsScm{
       scm {
         git {
-          remote { url(repo) }
+          remote { url("${repo}") }
           branches(\'dsl\', \'**/feature*\')
           scriptPath(\'hi.groovy\')
           extensions { }  // required as otherwise it may try to tag the repo, which you may not want
@@ -22,3 +23,4 @@ jobDsl scriptText: '''pipelineJob(\'dsl_Pipeline\') {
     }
   }
  }'''
+}
