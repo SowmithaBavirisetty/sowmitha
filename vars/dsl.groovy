@@ -1,6 +1,6 @@
 jobDsl scriptText: '''pipelineJob(\'dsl_Pipeline\') {
 
-  def repo = \'https://github.com/SowmithaBavirisetty/sowmitha.git\'
+  //def repo = \'https://github.com/SowmithaBavirisetty/sowmitha.git\'
 
   description("Pipeline for $repo")
 
