@@ -6,7 +6,7 @@ pipeline {
     stage("script") {
       steps {
         jobDsl scriptText: '''pipelineJob(\'testPipeline\') {
-        description("Pipeline for '${repo}'")
+        description("Pipeline for repo")
         definition {
           cpsScm{
             scm {
