@@ -1,13 +1,13 @@
-def call() {
+def call(variant) {
 pipeline {
   agent any 
   stages {
     stage("script") {
       steps {
         
-        jobDsl scriptText: '''def variant = "hiii"
+        jobDsl scriptText: '''
         pipelineJob(\"$variant\") {
-        def repo = \'https://github.com/SowmithaBavirisetty/sowmitha.git\'
+        def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
 
         description("Pipeline for $repo")
         definition {
