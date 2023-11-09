@@ -2,7 +2,7 @@ def call(repo) {
 pipeline {
   agent any 
   stages {
-    stage("dsl-script") {
+    stage("script") {
       steps {
         jobDsl scriptText: '''pipelineJob(\'testPipeline\') {
         description("Pipeline for $repo")
