@@ -5,8 +5,10 @@ pipeline {
     stage("script") {
       steps {
         script {
-        jobDsl scriptText: ''' def hi = displayName("$variant.repo")
-        pipelineJob(hi) {
+        jobDsl scriptText: ''' environmentVariables {
+         env("var":"$variant")
+        }
+        pipelineJob(env.var) {
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
 
         description("Pipeline for $repo")
