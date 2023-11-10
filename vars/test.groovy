@@ -6,7 +6,7 @@ pipeline {
       steps {
         script {
         jobDsl scriptText: ''' environmentVariables {
-         env("var":"$variant")
+         env("var", "$variant")
         }
         pipelineJob(env.var) {
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
