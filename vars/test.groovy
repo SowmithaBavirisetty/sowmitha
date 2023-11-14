@@ -5,10 +5,9 @@ pipeline {
     stage("script") {
       steps {
         script {
-        jobDsl scriptText: ''' environmentVariables {
-         env("var", "$variant")
-        }
-        pipelineJob(env.var) {
+        def Git-url = ${GIT_URL}
+        jobDsl scriptText: ''' 
+        pipelineJob(Git-url) {
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
 
         description("Pipeline for $repo")
