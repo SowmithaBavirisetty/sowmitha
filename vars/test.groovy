@@ -5,9 +5,9 @@ pipeline {
     stage("script") {
       steps {
         script {
-        def git-url = ${GIT_URL}
+        def val = ${GIT_URL}
         jobDsl scriptText: ''' 
-        pipelineJob(git-url) {
+        pipelineJob(val) {
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
 
         description("Pipeline for $repo")
