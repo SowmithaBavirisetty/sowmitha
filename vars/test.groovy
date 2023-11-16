@@ -10,6 +10,9 @@ pipeline {
       steps {
         script {
         jobDsl scriptText: ''' 
+        environmentVariables {
+        keepSystemVariables(true)
+        }
         def hlo = pipelineJob("${env.hi}")
         hlo.with {
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
