@@ -9,7 +9,7 @@ pipeline {
       steps {
         script {  
         
-        jobDsl scriptText: ''' def hi = getBinding().getVariables().var
+        jobDsl scriptText: ''' def hi = getBinding().getVariables().${env.var}
         pipelineJob(hi) {
         
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
