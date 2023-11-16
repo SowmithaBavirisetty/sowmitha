@@ -1,4 +1,4 @@
-def call(var1) {
+def call(myJob) {
 pipeline {
   agent any 
   stages {
@@ -8,7 +8,7 @@ pipeline {
         
         jobDsl scriptText: ''' 
         
-        pipelineJob("$var1") {
+        myJob.with {
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
 
         description("Pipeline for $repo")
