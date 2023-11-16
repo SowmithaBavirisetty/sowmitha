@@ -6,12 +6,12 @@ pipeline {
     stage("script") {
       steps {
         script {
-          
+        currentBuild.displayName = "The"  
         jobDsl scriptText: ''' 
         
         
         pipelineJob("exam") {
-        displayName(var1.vse)
+        
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
         
         description("Pipeline for $repo")
