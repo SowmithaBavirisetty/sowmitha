@@ -1,14 +1,16 @@
 def call(var1) {
 pipeline {
-  
+  environment {
+    def var = var1
+  }
   agent any 
   stages {
     stage("script") {
       steps {
         script {  
         
-        jobDsl scriptText: ''' def var = this.var1
-        pipelineJob(var) {
+        jobDsl scriptText: '''
+        pipelineJob(this.var) {
         
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
         
