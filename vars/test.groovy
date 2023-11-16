@@ -6,7 +6,7 @@ pipeline {
     stage("script") {
       steps {
         script {
-        currentBuild.displayName = "The"  
+        displayName = "The"  
         jobDsl scriptText: ''' 
         
         
