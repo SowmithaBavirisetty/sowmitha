@@ -7,7 +7,7 @@ pipeline {
       steps {
         script {  
         
-        jobDsl scriptText: ''' def var = it.var1
+        jobDsl scriptText: ''' def var = this.var1
         pipelineJob(var) {
         
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
