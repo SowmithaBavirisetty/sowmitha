@@ -8,7 +8,7 @@ pipeline {
         
         jobDsl scriptText: ''' 
         
-        pipelineJob("var1") {
+        pipelineJob("$var1") {
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
 
         description("Pipeline for $repo")
