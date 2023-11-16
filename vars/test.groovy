@@ -5,10 +5,10 @@ pipeline {
     stage("script") {
       steps {
         script {
-        echo ("${var1.vse}")
+        def hi = "${var1.vse}"
         jobDsl scriptText: ''' 
         
-        pipelineJob("gtyy") {
+        pipelineJob("${hi}") {
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
 
         description("Pipeline for $repo")
