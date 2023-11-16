@@ -1,4 +1,4 @@
-def call(config) {
+def call(additionalParams) {
 pipeline {
   agent any 
   stages {
@@ -7,10 +7,8 @@ pipeline {
         script {
         
         jobDsl scriptText: ''' 
-        withEnv([
-          "ARG1=${config.var1}"
-        ])
-        pipelineJob(ARG1) {
+        
+        pipelineJob("${additionalParams}") {
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
 
         description("Pipeline for $repo")
