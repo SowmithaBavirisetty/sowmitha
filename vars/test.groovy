@@ -5,14 +5,11 @@ pipeline {
   stages {
     stage("script") {
       steps {
-        script {
-        displayName = "The"  
+        script {  
         jobDsl targets: 
-        additionalParameters: [
-        project: "${var1}"
-        ]
+        additionalParameters: var1
         jobDsl scriptText: '''
-        pipelineJob(project) {
+        pipelineJob(var1.vse) {
         
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
         
