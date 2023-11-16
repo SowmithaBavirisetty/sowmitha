@@ -1,13 +1,16 @@
 def call(var1) {
 pipeline {
+  environment {
+        
+      def hi = "${var1.vse}"  
+    }
   agent any 
   stages {
     stage("script") {
       steps {
         script {
-        def hi = "${var1.vse}"
         jobDsl scriptText: ''' 
-        def hlo = pipelineJob("${hi}")
+        def hlo = pipelineJob("${env.hi}")
         hlo.with {
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
 
