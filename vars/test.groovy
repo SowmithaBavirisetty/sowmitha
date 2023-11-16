@@ -1,7 +1,7 @@
 def call(var1) {
 pipeline {
   environment {
-    def var = var1
+    def var = "${var1}"
   }
   agent any 
   stages {
