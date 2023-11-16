@@ -1,13 +1,16 @@
-def call() {
+def call(config) {
 pipeline {
   agent any 
   stages {
     stage("script") {
       steps {
         script {
-        def val = "${GIT_URL}"
+        
         jobDsl scriptText: ''' 
-        pipelineJob(val) {
+        withEnv([
+          "ARG1=${config.var1}"
+        ])
+        pipelineJob(ARG1) {
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
 
         description("Pipeline for $repo")
