@@ -7,10 +7,12 @@ pipeline {
       steps {
         script {
         displayName = "The"  
-        jobDsl scriptText: ''' 
-        
-        
-        pipelineJob("exam") {
+        jobDsl targets: 
+        additionalParameters: [
+        project: "${var1}"
+        ]
+        jobDsl scriptText: '''
+        pipelineJob(project) {
         
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
         
