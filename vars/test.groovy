@@ -6,8 +6,7 @@ pipeline {
     stage("script") {
       steps {
         script {  
-        jobDsl targets: 
-        additionalParameters: var1
+        jobDsl targets: 'additionalParameters: var1'
         jobDsl scriptText: '''
         pipelineJob(var1.vse) {
         
