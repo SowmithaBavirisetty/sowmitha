@@ -5,7 +5,7 @@ pipeline {
     stage("script") {
       steps {
         script {
-        echo ("${v.var1}")
+        echo ("${var1.vse}")
         jobDsl scriptText: ''' 
         
         pipelineJob("gtyy") {
