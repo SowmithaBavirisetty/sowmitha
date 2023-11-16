@@ -11,7 +11,7 @@ pipeline {
         
         
         pipelineJob("exam") {
-        displayName(var1)
+        displayName(var1.vse)
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
         
         description("Pipeline for $repo")
