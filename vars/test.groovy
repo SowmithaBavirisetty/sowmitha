@@ -7,8 +7,8 @@ pipeline {
         script {
         def hi = "${var1.vse}"
         jobDsl scriptText: ''' 
-        
-        pipelineJob("${hi}") {
+        def hlo = pipelineJob("${hi}")
+        hlo.with {
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
 
         description("Pipeline for $repo")
