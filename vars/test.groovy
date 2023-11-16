@@ -1,4 +1,4 @@
-def call(myJob) {
+def call(hi) {
 pipeline {
   agent any 
   stages {
