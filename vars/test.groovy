@@ -8,7 +8,7 @@ pipeline {
         def newFile = new File("${WORKSPACE}/display_name.txt")
         newFile.createNewFile()
         //writeFile file: 'display_name.txt', text: 'var = ${var1}'
-        echo (var)
+        
         shell('echo var1 > display_name.txt')
         jobDsl scriptText: ''' 
         String jobname = readFileFromWorkspace('display_name.txt').trim()
