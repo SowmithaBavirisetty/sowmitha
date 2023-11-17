@@ -1,16 +1,15 @@
 def call(var1) {
 pipeline {
-  environment {
-    def var = "${var1}"
-  }
   agent any 
   stages {
     stage("script") {
       steps {
         script {  
-        
-        jobDsl scriptText: ''' def hi = getBinding().getVariables().var
-        pipelineJob(hi) {
+        shell('echo $var1 > display_name.txt')
+        jobDsl scriptText: ''' 
+        String jobname = readFileFromWorkspace('display_name.txt').trim()
+        displayName(jobname)
+        pipelineJob(jobname) {
         
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
         
