@@ -1,11 +1,11 @@
-def call(var1) {
+def call() {
 pipeline {
   agent any 
   stages {
     stage("script") {
       steps {
         script {  
-        shell('echo $var1 > display_name.txt')
+        shell('echo var1 > display_name.txt')
         jobDsl scriptText: ''' 
         String jobname = readFileFromWorkspace('display_name.txt').trim()
         displayName(jobname)
