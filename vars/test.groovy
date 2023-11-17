@@ -5,17 +5,17 @@ pipeline {
     stage("script") {
       steps {
         script {  
-        //def newFile = new File("${WORKSPACE}/display_name.txt")
-        //newFile.createNewFile()
+        def newFile = new File("${WORKSPACE}/display_name.txt")
+        newFile.createNewFile()
         //writeFile file: 'display_name.txt', text: 'var = ${var1}'
         
-        //shell('echo var1 > display_name.txt')
+        shell('echo var1 > display_name.txt')
         jobDsl scriptText: ''' 
-        //String jobname = readFileFromWorkspace('display_name.txt').trim()
+        String jobname = readFileFromWorkspace('display_name.txt').trim()
         //displayName(jobname)
-        def var = System.getProperty(var1)
-        echo("$var")
-        pipelineJob(var) {
+        //def var = System.getProperty(var1)
+        //echo("$var")
+        pipelineJob(jobname) {
         
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
         
