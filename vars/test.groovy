@@ -5,8 +5,8 @@ pipeline {
     stage("script") {
       steps {
         script {  
-        writeFile file: 'display_name.txt'
-        shell('echo var1 > display_name.txt')
+        writeFile file: 'display_name.txt', text: 'var = ${var1}'
+        //shell('echo var1 > display_name.txt')
         jobDsl scriptText: ''' 
         String jobname = readFileFromWorkspace('display_name.txt').trim()
         displayName(jobname)
