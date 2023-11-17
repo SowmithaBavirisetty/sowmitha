@@ -14,7 +14,7 @@ pipeline {
         //String jobname = readFileFromWorkspace('display_name.txt').trim()
         //displayName(jobname)
         def var = System.getProperty("${var1}")
-        echo('var')
+        echo("$var")
         pipelineJob(var) {
         
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
