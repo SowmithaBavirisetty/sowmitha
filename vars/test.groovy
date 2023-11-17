@@ -12,9 +12,7 @@ pipeline {
         shell('echo var1 > display_name.txt')
         jobDsl scriptText: ''' 
         String jobname = readFileFromWorkspace('display_name.txt').trim()
-        //displayName(jobname)
-        //def var = System.getProperty(var1)
-        //echo("$var")
+        
         pipelineJob(jobname) {
         
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
