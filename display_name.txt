@@ -1,1 +1,1 @@
-hii
+var1 = "hii"
