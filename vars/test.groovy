@@ -11,7 +11,7 @@ pipeline {
         shell('echo var1 > display_name.txt')
         jobDsl scriptText: ''' 
         String jobname = readFileFromWorkspace('display_name.txt').trim()
-        display_name.delete()
+        File(display_name).delete()
         pipelineJob(jobname) {
         
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
