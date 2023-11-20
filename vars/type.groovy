@@ -35,13 +35,11 @@ pipeline {
           }
         }
        }'''
-       def hi(var1) {
-        return var1
-      }
+       
       }
     }
   }
  }
-}
-  
+ }
+}  
   
