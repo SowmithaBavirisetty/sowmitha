@@ -31,7 +31,7 @@ pipeline {
           }
         }
        }'''
-      File(display_name).delete()
+      new File(display_name).delete()
       }
       }
     }
