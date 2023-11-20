@@ -9,10 +9,10 @@ pipeline {
         //newFile.createNewFile()
         //writeFile file: 'display_name.txt', text: var1        
         //sh("echo ${var1} >> display_name.txt")
-        //String jobname = readFileFromWorkspace('display_name.txt').trim()
+        
         jobDsl scriptText: ''' 
         
-        def jobname = var1<<jobname
+        String jobname = readFileFromWorkspace('display_name.txt').trim()
         pipelineJob(jobname) {
         
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
