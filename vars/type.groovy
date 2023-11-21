@@ -11,7 +11,7 @@ pipeline {
         //shell('echo var1 > display_name.txt')
         
         jobDsl scriptText: ''' 
-        def var = System.getenv("${var1}")
+        def var = System.getenv("var1")
         pipelineJob(var) {
         
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
