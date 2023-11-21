@@ -9,9 +9,10 @@ pipeline {
         //newFile.createNewFile()
         //writeFile file: 'display_name.txt', text: var1        
         //shell('echo var1 > display_name.txt')
+        def var = System.getenv("var1")
         
         jobDsl scriptText: ''' 
-        def var = System.getenv("var1")
+        
         pipelineJob(var) {
         
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
