@@ -9,7 +9,7 @@ pipeline {
         //newFile.createNewFile()
         //writeFile file: 'display_name.txt', text: var1        
         //shell('echo var1 > display_name.txt')
-        def var = System.getenv("var1")
+        def var = "${var1}"
         echo "$var"
         jobDsl scriptText: ''' 
         
