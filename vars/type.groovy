@@ -11,11 +11,9 @@ pipeline {
         //shell('echo var1 > display_name.txt')
         jobDsl scriptText: ''' 
          environmentVariables {
-          groovy('''
-            def jobname = "${var1}"
-          ''')
+          def jobname = "${var1}"
          }
-        
+         sh "BRANCH_NAME"
         pipelineJob(jobname) {
         
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
