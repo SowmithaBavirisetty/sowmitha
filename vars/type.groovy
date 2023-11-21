@@ -11,8 +11,8 @@ pipeline {
         //shell('echo var1 > display_name.txt')
         jobDsl scriptText: ''' 
          
-         def jobname = sh(script : ${BUILD_NUMBER}, returnStdout: true).trim()
-        pipelineJob(jobname) {
+         
+        pipelineJob("jobname") {
         
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
         
@@ -37,5 +37,9 @@ pipeline {
   }
  }
  }
+  def variable(var1) {
+    jobDsl script Text : ''' displayname(var1) '''
+    
+  }
 }  
   
