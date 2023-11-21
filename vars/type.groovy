@@ -38,7 +38,7 @@ pipeline {
  }
  }
   def variable(var1) {
-    jobDsl script Text : ''' displayname(var1) '''
+    jobDsl scriptText : ''' displayname(var1) '''
     
   }
 }  
