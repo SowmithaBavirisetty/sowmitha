@@ -16,7 +16,7 @@ pipeline {
         
         def repo = "https://github.com/SowmithaBavirisetty/sowmitha.git"
         
-        description("Pipeline for $repo")
+        description("Pipeline for '$repo'")
         definition {
           cpsScm{
             scm {
