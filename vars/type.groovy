@@ -16,12 +16,12 @@ pipeline {
         
         def repo = "https://github.com/SowmithaBavirisetty/sowmitha.git"
         
-        description("Pipeline for '$repo'")
+        description("Pipeline for repo")
         definition {
           cpsScm{
             scm {
               git {
-                remote { url(repo) }
+                remote { url("\$repo") }
                 credentialsId: 'key'
                 branches(\'testing\', \'**/feature*\')
                 scriptPath(\'hi.groovy\')
