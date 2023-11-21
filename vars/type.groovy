@@ -9,10 +9,9 @@ pipeline {
         //newFile.createNewFile()
         //writeFile file: 'display_name.txt', text: var1        
         //shell('echo var1 > display_name.txt')
+        def variable(var1) {
         jobDsl scriptText: ''' 
-         
-         
-        pipelineJob("jobname") {
+        pipelineJob(var1) {
         
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
         
@@ -37,9 +36,6 @@ pipeline {
   }
  }
  }
-  def variable(var1) {
-    jobDsl scriptText : ''' displayname(var1) '''
-    
-  }
+} 
 }  
   
