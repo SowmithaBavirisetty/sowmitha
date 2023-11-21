@@ -12,7 +12,9 @@ pipeline {
         def var = "${var1}"
         echo "$var"
         jobDsl scriptText: ''' 
-        
+        shell(""" def var = ${var1}
+         echo \$var
+        """)
         pipelineJob(var) {
         
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
