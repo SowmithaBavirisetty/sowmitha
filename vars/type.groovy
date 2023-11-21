@@ -11,10 +11,10 @@ pipeline {
         //shell('echo var1 > display_name.txt')
         def var = "${var1}"
         echo "$var"
+        jobDsl scriptText: "def var = \${var1}"
         jobDsl scriptText: """ 
-        pipelineJob("var1") {
-        def var = "\${var1}"
-        displayName(var)
+        pipelineJob("var") {
+        
         def repo = "https://github.com/SowmithaBavirisetty/sowmitha.git"
         
         description("Pipeline for repo")
