@@ -11,7 +11,7 @@ pipeline {
         //shell('echo var1 > display_name.txt')
         def var = "${var1}"
         echo "$var"
-        jobDsl scriptText: "def var = \${var1}"
+        jobDsl scriptText: "def var = var1 "
         jobDsl scriptText: """ 
         pipelineJob("var") {
         
