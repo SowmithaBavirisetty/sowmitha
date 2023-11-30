@@ -11,10 +11,17 @@ pipeline {
         //shell('echo var1 > display_name.txt')
         //def var = new "${var1}"
         
-        jobDsl target : """ def var = var1"""
-        jobDsl scriptText: """  
         
-        pipelineJob(var) {
+        jobDsl scriptText: """  
+        parameters {
+         groovyScript {
+                script("""
+			              
+			              def fileName = "\${var1}" 
+                """)
+			          }
+      }
+        pipelineJob(fileName) {
         
         def repo = "https://github.com/SowmithaBavirisetty/sowmitha.git"
         
