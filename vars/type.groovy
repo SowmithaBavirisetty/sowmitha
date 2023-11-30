@@ -13,15 +13,7 @@ pipeline {
         
         
         jobDsl scriptText: """  
-        parameters {
-	activeChoiceParam('CHOICE-1') {
-         groovyScript {
-                script("""
-		  def fileName = "\${var1}" 
-                """)
-          }
-	 }
-       }
+        
         pipelineJob(fileName) {
         
         def repo = "https://github.com/SowmithaBavirisetty/sowmitha.git"
@@ -41,7 +33,10 @@ pipeline {
           }
         }
        }"""
-       
+       item = Jenkins.instance.getItemByFullName("originalJobName")
+       item.setDescription("This description was changed by script")
+       item.save()
+       item.renameTo("${var1}")
       }
     }
   }
