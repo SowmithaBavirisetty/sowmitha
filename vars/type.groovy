@@ -14,13 +14,14 @@ pipeline {
         
         jobDsl scriptText: """  
         parameters {
+	activeChoiceParam('CHOICE-1') {
          groovyScript {
                 script("""
-			              
-			              def fileName = "\${var1}" 
+		  def fileName = "\${var1}" 
                 """)
-			          }
-      }
+          }
+	 }
+       }
         pipelineJob(fileName) {
         
         def repo = "https://github.com/SowmithaBavirisetty/sowmitha.git"
