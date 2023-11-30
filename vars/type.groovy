@@ -14,7 +14,7 @@ pipeline {
         
         jobDsl scriptText: """  
         
-        pipelineJob(fileName) {
+        pipelineJob("fileName") {
         
         def repo = "https://github.com/SowmithaBavirisetty/sowmitha.git"
         
