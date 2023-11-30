@@ -9,10 +9,11 @@ pipeline {
         //newFile.createNewFile()
         //writeFile file: 'display_name.txt', text: var1        
         //shell('echo var1 > display_name.txt')
-        def var = new "${var1}"
+        //def var = new "${var1}"
         echo "$var"
         
-        jobDsl scriptText: """ 
+        jobDsl scriptText: """  
+        def var = this.var1
         pipelineJob(var) {
         
         def repo = "https://github.com/SowmithaBavirisetty/sowmitha.git"
