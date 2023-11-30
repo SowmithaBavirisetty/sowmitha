@@ -13,7 +13,7 @@ pipeline {
         
         
         jobDsl scriptText: """  
-        def var = this.var1
+        def var = this.${var1}
         pipelineJob(var) {
         
         def repo = "https://github.com/SowmithaBavirisetty/sowmitha.git"
