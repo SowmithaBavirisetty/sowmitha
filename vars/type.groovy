@@ -13,8 +13,10 @@ pipeline {
         
         
         jobDsl scriptText: """  
-        
-        pipelineJob("fileName") {
+        parameters {
+          stringParam("filename", "${var1}", "A parameter")
+        }
+        pipelineJob('fileName') {
         
         def repo = "https://github.com/SowmithaBavirisetty/sowmitha.git"
         
