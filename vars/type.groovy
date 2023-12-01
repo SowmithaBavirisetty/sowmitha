@@ -10,13 +10,13 @@ pipeline {
         //writeFile file: 'display_name.txt', text: var1        
         //shell('echo var1 > display_name.txt')
         //def var = new "${var1}"
-        
-        
-        jobDsl scriptText: """  
         parameters {
           stringParam(name:'filename', defaultValue:"\${var1}", description:'A parameter')
         }
-        pipelineJob("\${fileName}") {
+        
+        jobDsl scriptText: """  
+        
+        pipelineJob("${fileName}") {
         
         def repo = "https://github.com/SowmithaBavirisetty/sowmitha.git"
         
