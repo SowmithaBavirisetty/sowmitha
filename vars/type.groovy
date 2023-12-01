@@ -34,8 +34,6 @@ pipeline {
         }
        }"""
        item = Jenkins.instance.getItemByFullName("fileName")
-       item.setDescription("This description was changed by script")
-       item.save()
        item.renameTo("${var1}")
       }
     }
