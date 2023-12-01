@@ -35,8 +35,7 @@ pipeline {
           }
         }
        }"""
-       item = Jenkins.instance.getItemByFullName("fileName")
-       item.renameTo("${var1}")
+       
       }
     }
   }
