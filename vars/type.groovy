@@ -14,7 +14,7 @@ pipeline {
         
         jobDsl scriptText: """  
         parameters {
-          stringParam(name:'${var1}', defaultValue:"defaultval", description:'A parameter')
+          stringParam(name:"${var1}", defaultValue:'defaultval', description:'A parameter')
         }
         pipelineJob(var1) {
         
