@@ -16,7 +16,7 @@ pipeline {
         parameters {
           stringParam("filename", "${var1}", "A parameter")
         }
-        pipelineJob('fileName') {
+        pipelineJob(it.fileName) {
         
         def repo = "https://github.com/SowmithaBavirisetty/sowmitha.git"
         
