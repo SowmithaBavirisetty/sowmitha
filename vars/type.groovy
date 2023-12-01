@@ -11,7 +11,7 @@ pipeline {
         //shell('echo var1 > display_name.txt')
         //def var = new "${var1}"
          parameters {
-          string(name:'${var1}', defaultValue:'defaultval', description:'A parameter')
+          string(name:"${var1}", defaultValue:'defaultval', description:'A parameter')
         }
         
         jobDsl scriptText: """  
