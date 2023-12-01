@@ -14,9 +14,9 @@ pipeline {
         
         jobDsl scriptText: """  
         parameters {
-          stringParam(name:"filename", defaultValue:"${var1}", description:"A parameter")
+          stringParam(name:'filename', defaultValue:"\${var1}", description:'A parameter')
         }
-        pipelineJob("${fileName}") {
+        pipelineJob("\${fileName}") {
         
         def repo = "https://github.com/SowmithaBavirisetty/sowmitha.git"
         
