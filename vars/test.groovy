@@ -5,10 +5,8 @@ pipeline {
     stage("script") {
       steps {
         script {  
-        //def newFile = new File("${WORKSPACE}/display_name.txt")
-        //newFile.createNewFile()
-        //writeFile file: 'display_name.txt', text: var1        
-        //sh("echo ${var1} >> display_name.txt")
+              
+        sh("echo ${var1} >> display_name.txt")
         
         jobDsl scriptText: ''' 
         
