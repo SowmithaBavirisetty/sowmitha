@@ -22,8 +22,8 @@ pipeline {
               git {
                 remote { url(repo) }
                 credentialsId: 'key'
-                branches('testing')
-                scriptPath('hi.groovy')
+                branches(\'testing\')
+                scriptPath(\'hi.groovy\')
                 extensions { }  // required as otherwise it may try to tag the repo, which you may not want
               }
             }
