@@ -1,46 +1,31 @@
 def call(var1) {
-pipeline {
-  agent any 
-  stages {
-    stage("script") {
-      steps {
-        script {  
-        //def newFile = new File("${WORKSPACE}/display_name.txt")
-        //newFile.createNewFile()
-        //writeFile file: 'display_name.txt', text: var1        
-        //shell('echo var1 > display_name.txt')
-        //def var = new "${var1}"
-         parameters {
-          string(name:"${var1}", defaultValue:'defaultval', description:'A parameter')
-        }
+ 
+              
+        sh("echo ${var1} >> display_name.txt")
         
-        jobDsl scriptText: """  
+        jobDsl scriptText: ''' 
         
-        pipelineJob(var1) {
+        String jobname = readFileFromWorkspace('display_name.txt').trim()
+        pipelineJob(jobname) {
         
-        def repo = "https://github.com/SowmithaBavirisetty/sowmitha.git"
+        def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
         
-        description("Pipeline for repo")
+        description("Pipeline for $repo")
         definition {
           cpsScm{
             scm {
               git {
-                remote { url("\$repo") }
+                remote { url(repo) }
                 credentialsId: 'key'
-                branches(\'testing\', \'**/feature*\')
+                branches(\'testing\')
                 scriptPath(\'hi.groovy\')
                 extensions { }  // required as otherwise it may try to tag the repo, which you may not want
               }
             }
           }
         }
-       }"""
-       
-      }
-    }
-  }
- }
- 
-} 
+       }'''
+       sh "rm display_name.txt"
+      
+}
   
-}  
