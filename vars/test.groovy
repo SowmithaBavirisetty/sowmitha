@@ -8,12 +8,12 @@ pipeline {
               
         sh("echo ${var1} >> display_name.txt")
         
-        jobDsl scriptText: ''' 
+        jobDsl scriptText: """
         
         String jobname = readFileFromWorkspace('display_name.txt').trim()
         pipelineJob(jobname) {
         
-        def repo = 'https://github.com/SowmithaBavirisetty/${jobname}.git'
+        def repo = "https://github.com/SowmithaBavirisetty/'${jobname}'.git"
         
         description("Pipeline for $repo")
         definition {
@@ -29,7 +29,7 @@ pipeline {
             }
           }
         }
-       }'''
+       }"""
        sh "rm display_name.txt"
       }
       }
