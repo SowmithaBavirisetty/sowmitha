@@ -1,12 +1,12 @@
 
 def call(var1) {
- @Library('mylibrary@testing') _
+
               
         sh("echo ${var1} >> display_name.txt")
         
         jobDsl scriptText: ''' 
-         def mySharedVariableInstance = variable()
-         echo "Using shared variable: ${mySharedVariableInstance.variable}"
+         
+         
             
 
         
@@ -14,7 +14,7 @@ def call(var1) {
         pipelineJob(jobname) {
 
         
-        def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
+        def repo = 'https://github.com/SowmithaBavirisetty/${jobname}.git'
         
         description("Pipeline for $repo")
         definition {
@@ -23,8 +23,8 @@ def call(var1) {
               git {
                 remote { url(repo) }
                 credentialsId: 'key'
-                branches(\'testing\')
-                scriptPath(\'hi.groovy\')
+                branches('testing')
+                scriptPath('hi.groovy')
                 extensions { }  // required as otherwise it may try to tag the repo, which you may not want
               }
             }
