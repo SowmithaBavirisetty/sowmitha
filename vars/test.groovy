@@ -20,7 +20,7 @@ pipeline {
           cpsScm{
             scm {
               git {
-                remote { url "https://github.com/SowmithaBavirisetty/\${jobname}.git" }
+                remote { url "https://github.com/SowmithaBavirisetty/${jobname}.git" }
                 credentialsId: 'key'
                 branches(\'testing\')
                 scriptPath(\'hi.groovy\')
