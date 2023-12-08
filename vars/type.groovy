@@ -2,7 +2,7 @@
 def call(var1) {
 
               
-        sh("echo ${var1} >> display_name.txt")
+        sh("echo ${var1} > display_name.txt")
         
         jobDsl scriptText: ''' 
          
@@ -14,7 +14,7 @@ def call(var1) {
         pipelineJob(jobname) {
 
         
-        def repo = 'https://github.com/SowmithaBavirisetty/${jobname}.git'
+        def repo = "https://github.com/SowmithaBavirisetty/${jobname}.git"
         
         description("Pipeline for $repo")
         definition {
