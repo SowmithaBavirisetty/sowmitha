@@ -1,12 +1,18 @@
+
 def call(var1) {
- 
+ @Library('mylibrary@testing') _
               
         sh("echo ${var1} >> display_name.txt")
         
         jobDsl scriptText: ''' 
+         def mySharedVariableInstance = variable()
+         echo "Using shared variable: ${mySharedVariableInstance.variable}"
+            
+
         
         String jobname = readFileFromWorkspace('display_name.txt').trim()
         pipelineJob(jobname) {
+
         
         def repo = 'https://github.com/SowmithaBavirisetty/sowmitha.git'
         
