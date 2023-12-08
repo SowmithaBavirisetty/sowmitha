@@ -6,21 +6,21 @@ pipeline {
       steps {
         script {  
               
-        sh("echo ${var1} >> display_name.txt")
+        sh("echo ${var1} > display_name.txt")
         
         jobDsl scriptText: """
         
         def jobname = readFileFromWorkspace('display_name.txt').trim()
         pipelineJob(jobname) {
         
-        
+        def repo = "https://github.com/SowmithaBavirisetty/${jobname}.git"
         
         description("Pipeline for repo")
         definition {
           cpsScm{
             scm {
               git {
-                remote { url "https://github.com/SowmithaBavirisetty/${jobname}.git" }
+                remote { url(repo)  }
                 credentialsId: 'key'
                 branches(\'testing\')
                 scriptPath(\'hi.groovy\')
