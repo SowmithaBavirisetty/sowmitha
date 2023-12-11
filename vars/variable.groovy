@@ -2,13 +2,27 @@
 def call(Map config) {
     def jobName = config.jobName ?: 'defaultJobName'
 
-    pipelineJob(jobName) {
-        description("Pipeline for ${jobName}")
-        definition {
-            echo "Job name inside DSL script: ${jobName}"
-            
-            // Additional DSL script configurations...
+    pipeline {
+        agent any
+        environment {
+            JOB_NAME = jobName
+        }
+        stages {
+            stage('Build') {
+                steps {
+                    echo "Building ${JOB_NAME}"
+                    // Additional build steps...
+                }
+            }
+            stage('SCM Checkout') {
+                steps {
+                    script {
+                        checkout scm
+                    }
+                }
+            }
         }
     }
 }
+
 
