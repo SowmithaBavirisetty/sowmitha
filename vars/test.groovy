@@ -9,7 +9,7 @@ pipeline {
         sh("echo ${var1} > display_name.txt")
         
         jobDsl scriptText: """
-        def jobname = params.jobname
+        
         
         pipelineJob(jobname) {
         
@@ -30,9 +30,7 @@ pipeline {
           }
         }
        }""" ,
-       params: [
-        jobname: readFileFromWorkspace('display_name.txt').trim()
-       ]
+      
        sh "rm display_name.txt"
       }
       }
