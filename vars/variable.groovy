@@ -5,12 +5,12 @@ def call(Map config) {
     pipeline {
         agent any
         environment {
-            JOB_NAME = jobName
+            JOB_NAME = "$jobName"
         }
         stages {
             stage('Build') {
                 steps {
-                    echo "Building ${JOB_NAME}"
+                    echo "Building ${env.JOB_NAME}"
                     // Additional build steps...
                 }
             }
