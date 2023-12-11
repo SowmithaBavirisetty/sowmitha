@@ -10,7 +10,7 @@ pipeline {
         
         jobDsl scriptText: """
         
-        def jobname = readFileFromWorkspace('display_name.txt').trim()
+        jobname = readFileFromWorkspace('display_name.txt').trim()
         pipelineJob(jobname) {
         
         def repo = "https://github.com/SowmithaBavirisetty/${jobname}.git"
