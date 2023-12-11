@@ -1,4 +1,4 @@
-def call(config) {
+def call(Map config) {
 pipeline {
   agent any 
   stages {
@@ -6,7 +6,7 @@ pipeline {
       steps {
         script {  
               
-        sh("echo ${config.var1} > display_name.txt")
+        sh("echo ${config.jobname} > display_name.txt")
         
         jobDsl scriptText: """
         
