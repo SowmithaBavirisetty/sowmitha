@@ -6,13 +6,13 @@ pipeline {
       steps {
         script {  
               
-        //sh("echo ${var1} > display_name.txt")
+        sh("echo ${jobname} > display_name.txt")
         
         jobDsl scriptText: """
         
         
         pipelineJob(jobname) {
-        
+        String jobname = readFileFromWorkspace('display_name.txt').trim()
         def repo = "https://github.com/SowmithaBavirisetty/${jobname}.git"
         
         description("Pipeline for repo")
