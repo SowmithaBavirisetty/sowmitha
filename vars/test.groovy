@@ -1,4 +1,4 @@
-def call(String jobname) {
+def call(config) {
 pipeline {
   agent any 
   stages {
@@ -6,7 +6,7 @@ pipeline {
       steps {
         script {  
               
-        sh("echo ${jobname} > display_name.txt")
+        sh("echo ${config.var1} > display_name.txt")
         
         jobDsl scriptText: """
         
@@ -30,6 +30,7 @@ pipeline {
           }
         }
        }""" 
+        sh "rm display_name.txt"
        }
       }
     }
