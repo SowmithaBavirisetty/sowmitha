@@ -1,4 +1,4 @@
-def call(String config) {
+def call(config) {
 pipeline {
   agent any 
   stages {
