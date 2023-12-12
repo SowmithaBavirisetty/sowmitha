@@ -11,7 +11,7 @@ pipeline {
         jobDsl scriptText: """
         
         String jobname = readFileFromWorkspace('display_name.txt').trim()
-        pipelineJob("Test"+jobname) {
+        pipelineJob("Test-"+jobname) {
         
         def repo = "https://github.com/SowmithaBavirisetty/${jobname}.git"
         
