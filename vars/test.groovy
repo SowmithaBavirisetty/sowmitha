@@ -6,7 +6,7 @@ pipeline {
       steps {
         script {  
               
-        sh("echo ${jobname} > display_name.txt")
+        sh("echo ${Jobname} > display_name.txt")
         
         jobDsl scriptText: """
         
