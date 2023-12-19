@@ -12,7 +12,7 @@ pipeline {
         
         String jobname = readFileFromWorkspace('display_name.txt').trim()
         
-        pipelineJob("'prerna'/'Test-'+${jobname}") {
+        pipelineJob("'prerna'/'Test-'+'${jobname}'") {
         
         def repo = "https://github.com/SowmithaBavirisetty/${jobname}.git"
         
