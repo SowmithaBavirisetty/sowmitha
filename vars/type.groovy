@@ -1,5 +1,5 @@
 
-def call(List jobname) {
+def type(List jobname) {
 
               
         for (newvar in jobname) {
