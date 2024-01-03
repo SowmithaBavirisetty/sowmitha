@@ -1,4 +1,4 @@
-def call(jobname) {
+def call(Map jobname) {
 pipeline {
   agent any 
   stages {
