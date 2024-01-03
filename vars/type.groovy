@@ -1,16 +1,8 @@
 
-def call(var1) {
+def call(List jobname) {
 
               
-        sh("echo ${var1} > display_name.txt")
-        
-        jobDsl scriptText: ''' 
-         
-         
-            
-
-        
-        String jobname = readFileFromWorkspace('display_name.txt').trim()
+        for (newvar in jobname) {
         pipelineJob(jobname) {
 
         
@@ -21,8 +13,10 @@ def call(var1) {
           cpsScm{
             scm {
               git {
-                remote { url(repo) }
-                credentialsId: 'key'
+                remote { url(repo) 
+                         credentialsId: 'key'
+                       }
+                
                 branches('testing')
                 scriptPath('hi.groovy')
                 extensions { }  // required as otherwise it may try to tag the repo, which you may not want
@@ -30,8 +24,8 @@ def call(var1) {
             }
           }
         }
-       }'''
-       sh "rm display_name.txt"
+       }
+      }  
       
 }
   
