@@ -1,7 +1,7 @@
 
 def type(jobnames) {
 
-            
+        script {    
         jobnames.each { jobname ->
         pipelineJob(jobname) {
 
@@ -26,6 +26,6 @@ def type(jobnames) {
         }
        }
       }  
-      
+   }  
 }
   
