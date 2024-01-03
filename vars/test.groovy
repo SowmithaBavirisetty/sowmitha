@@ -5,7 +5,7 @@ pipeline {
     stage("script") {
       steps {
         script {  
-        String newvar    
+         
         //sh("echo ${jobname} >> display_name.txt")
         //String jobname = readFileFromWorkspace('display_name.txt').trim()
 
