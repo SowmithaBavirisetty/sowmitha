@@ -1,8 +1,8 @@
 
-def type(jobname) {
+def type(jobnames) {
 
             
-        jobname.each { jobname ->
+        jobnames.each { jobname ->
         pipelineJob(jobname) {
 
         
