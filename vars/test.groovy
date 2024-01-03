@@ -5,12 +5,12 @@ pipeline {
     stage("script") {
       steps {
         script {  
-              
+        String jobname     
         sh("echo ${jobname} >> display_name.txt")
-        
+        for (jobname in var1) {
         jobDsl scriptText: """
         
-        String jobname = readFileFromWorkspace('display_name.txt').trim()
+        //String jobname = readFileFromWorkspace('display_name.txt').trim()
        
         pipelineJob("prerna/Test-${jobname}") {
         
@@ -31,7 +31,9 @@ pipeline {
           }
         }
        }""" 
+      }
         sh "rm display_name.txt"
+        
        }
       }
     }
