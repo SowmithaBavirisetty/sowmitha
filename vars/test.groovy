@@ -1,4 +1,4 @@
-def call(jobname) {
+def call(List jobname) {
 pipeline {
   agent any 
   stages {
@@ -9,7 +9,7 @@ pipeline {
         //sh("echo ${jobname} >> display_name.txt")
         //String jobname = readFileFromWorkspace('display_name.txt').trim()
 
-        for (newvar in var1) {
+        for (newvar in jobname) {
         jobDsl scriptText: """
         
         
