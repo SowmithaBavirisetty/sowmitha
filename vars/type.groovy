@@ -1,8 +1,8 @@
 
 def type(List jobname) {
 
-              
-        for (newvar in jobname) {
+            
+        jobname.each { jobname ->
         pipelineJob(jobname) {
 
         
