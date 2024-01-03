@@ -5,16 +5,18 @@ pipeline {
     stage("script") {
       steps {
         script {  
-        String jobname     
-        sh("echo ${jobname} >> display_name.txt")
-        for (jobname in var1) {
+        String newvar    
+        //sh("echo ${jobname} >> display_name.txt")
+        //String jobname = readFileFromWorkspace('display_name.txt').trim()
+
+        for (newvar in var1) {
         jobDsl scriptText: """
         
-        //String jobname = readFileFromWorkspace('display_name.txt').trim()
-       
-        pipelineJob("prerna/Test-${jobname}") {
         
-        def repo = "https://github.com/SowmithaBavirisetty/${jobname}.git"
+       
+        pipelineJob("prerna/Test-${newvar}") {
+        
+        def repo = "https://github.com/SowmithaBavirisetty/${newvar}.git"
         
         description("Pipeline for repo")
         definition {
