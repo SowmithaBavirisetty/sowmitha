@@ -34,7 +34,7 @@ pipeline {
         }
        }""" 
       }
-        sh "rm display_name.txt"
+        //sh "rm display_name.txt"
         
        }
       }
