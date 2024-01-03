@@ -1,5 +1,5 @@
 
-def type(List jobname) {
+def type(jobname) {
 
             
         jobname.each { jobname ->
