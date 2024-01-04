@@ -11,9 +11,6 @@ pipeline {
 
         for (newvar in jobname) {
         jobDsl scriptText: """
-        
-        
-       
         pipelineJob("prerna/Test-${newvar}") {
         
         def repo = "https://github.com/SowmithaBavirisetty/${newvar}.git"
@@ -28,7 +25,7 @@ pipeline {
                 branches('testing')
                 scriptPath('hi.groovy')
                 extensions { }  // required as otherwise it may try to tag the repo, which you may not want
-                sandbox()
+               
               }
             }
           }
