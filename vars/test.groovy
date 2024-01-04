@@ -6,13 +6,13 @@ pipeline {
       steps {
         script {  
          
-        sh("echo ${jobname} >> display_name.txt")
+        //sh("echo ${jobname} >> display_name.txt")
        // List jobnames = readFileFromWorkspace('display_name.txt').trim()
 
-        //for (newvar in jobname) {
+        for (newvar in jobname) {
         jobDsl scriptText: """
-        List jobnames = readFileFromWorkspace('display_name.txt').trim()
-        for (newvar in jobnames) {
+    
+        
         pipelineJob("prerna/Test-${newvar}") {
         
         def repo = "https://github.com/SowmithaBavirisetty/${newvar}.git"
@@ -32,12 +32,12 @@ pipeline {
             }
           }
         }
-        }
+      
        }""" 
       }
-        sh "rm display_name.txt"
+        //sh "rm display_name.txt"
         
-      // }
+      }
       }
     }
   }
