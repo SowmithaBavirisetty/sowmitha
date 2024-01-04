@@ -1,4 +1,5 @@
 def call(List jobNames) {
+node {
     jobNames.each { jobName ->
       jobDsl script: """
         pipelineJob("prerna/Test-${jobName}") {
@@ -15,4 +16,5 @@ def call(List jobNames) {
             }
         } """
     } 
-}    
+  }    
+}
