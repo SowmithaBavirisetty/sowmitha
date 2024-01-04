@@ -7,10 +7,11 @@ pipeline {
         script {  
          
         //sh("echo ${jobname} >> display_name.txt")
-        List jobnames = readFileFromWorkspace('display_name.txt').trim()
+       // List jobnames = readFileFromWorkspace('display_name.txt').trim()
 
         //for (newvar in jobname) {
         jobDsl scriptText: """
+        List jobnames = readFileFromWorkspace('display_name.txt').trim()
         for (newvar in jobnames) {
         pipelineJob("prerna/Test-${newvar}") {
         
