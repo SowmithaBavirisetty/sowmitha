@@ -6,7 +6,7 @@ pipeline {
       steps {
         script {  
          
-        //sh("echo ${jobname} >> display_name.txt")
+        sh("echo ${jobname} >> display_name.txt")
        // List jobnames = readFileFromWorkspace('display_name.txt').trim()
 
         //for (newvar in jobname) {
