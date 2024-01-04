@@ -1,4 +1,5 @@
 def call(List jobNames) {
+node  {
     jobNames.each { jobName ->
         pipelineJob("prerna/Test-${jobName}") {
             definition {
@@ -14,4 +15,5 @@ def call(List jobNames) {
             }
         }
     }
-}
+ }
+}    
