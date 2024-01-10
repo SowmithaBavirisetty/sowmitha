@@ -1,8 +1,6 @@
 def call(List jobNames) {
-node {
     script {
-    jobNames.each { jobName ->
-      
+      jobNames.each { jobName ->
         pipelineJob("prerna/Test-${jobName}") {
             definition {
                 cpsScm {
@@ -18,5 +16,4 @@ node {
         } 
     } 
   } 
-}
 }
