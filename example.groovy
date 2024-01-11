@@ -1,4 +1,4 @@
-def call(List jobname) {
+
 pipeline {
   agent any 
   stages {
@@ -8,7 +8,7 @@ pipeline {
          
         //sh("echo ${jobname} >> display_name.txt")
        // List jobnames = readFileFromWorkspace('display_name.txt').trim()
-
+        def jobname = ["var1","var2"]
         for (newvar in jobname) {
         jobDsl scriptText: """
     
@@ -42,5 +42,5 @@ pipeline {
     }
   }
  }
-}
+
   
