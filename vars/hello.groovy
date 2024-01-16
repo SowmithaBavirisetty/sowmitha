@@ -51,6 +51,7 @@ def call(List jobNames) {
 
 // Function to create a job using DSL script
 def createJob(String dslScript) {
-    def jobDslEngine = new javaposse.jobdsl.dsl.DslScriptLoader(null)
-    jobDslEngine.runScript(dslScript)
+    def jenkinsInstance = Jenkins.instance
+    def scriptClass = jenkinsInstance.classLoader.loadClass('javaposse.jobdsl.dsl.DslScript')
+    def jobDslEngine = new javaposse.jobdsl.dsl.DslScriptLoader(scriptClass, jenkinsInstance).runScript(dslScript)
 }
