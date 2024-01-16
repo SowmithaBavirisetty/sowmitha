@@ -50,10 +50,7 @@ def call(List jobNames) {
 }
 
 // Function to create a job using DSL script
-def createJob(String dslScript, String jobName) {
-    def scriptLoader = new javaposse.jobdsl.dsl.DslScriptLoader(null)
-    def jobDslEngine = scriptLoader.runScript(dslScript, false).asDslEngine()
-    jobDslEngine.with {
-        job(name)
-    }
+def createJob(String dslScript) {
+    def jobDslEngine = new javaposse.jobdsl.dsl.DslScriptLoader(null)
+    jobDslEngine.runInline(dslScript)
 }
