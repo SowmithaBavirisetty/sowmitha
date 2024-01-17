@@ -22,7 +22,7 @@
 
 
 // my-shared-library/vars/CreatePipelineJobs.groovy
-def call(List<String> jobname) {
+def call(String jobname) {
     script {
         // Generate DSL code for each job
           jobDsl scriptText: """
