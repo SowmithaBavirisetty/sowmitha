@@ -44,8 +44,7 @@ def call(List<String> jobNames) {
             }
         """
         
-        // Print the DSL script (optional, for debugging purposes)
-        echo jobDslScript
+        
 
         // No need to explicitly create the job, as the DSL plugin will apply it automatically.
     }
