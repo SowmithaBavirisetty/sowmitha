@@ -25,7 +25,7 @@
 def call(List<String> jobNames) {
     jobNames.each { jobName ->
         // Generate DSL code for each job
-        def jobDslScript = """
+        
             pipelineJob('${jobName}') {
                 description("Pipeline for ${jobName}")
                 definition {
@@ -42,7 +42,7 @@ def call(List<String> jobNames) {
                     }
                 }
             }
-        """
+        
         
         
 
