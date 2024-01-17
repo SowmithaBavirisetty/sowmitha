@@ -21,12 +21,12 @@
 
 
 
-// my-shared-library/vars/CreateJobs.groovy
-def call(List jobNames) {
+// my-shared-library/vars/CreatePipelineJobs.groovy
+def call(List<String> jobNames) {
     jobNames.each { jobName ->
         // Generate DSL code for each job
         def jobDslScript = """
-            pipelineJob("prerna/Test-${jobName}") {
+            pipelineJob('${jobName}') {
                 description("Pipeline for ${jobName}")
                 definition {
                     cpsScm {
@@ -34,8 +34,8 @@ def call(List jobNames) {
                             git {
                                 remote { url("https://github.com/SowmithaBavirisetty/${jobName}.git") }
                                 
-                                branches('testing')
-                                scriptPath('hi.groovy')
+                                branches('master')
+                                scriptPath('Jenkinsfile')
                                 extensions { }
                             }
                         }
@@ -43,15 +43,10 @@ def call(List jobNames) {
                 }
             }
         """
+        
+        // Print the DSL script (optional, for debugging purposes)
+        echo jobDslScript
 
-        // Create the job using the generated DSL code
-        createJob(jobDslScript)
+        // No need to explicitly create the job, as the DSL plugin will apply it automatically.
     }
-}
-
-// Function to create a job using DSL script
-def createJob(String dslScript) {
-    def jenkinsInstance = Jenkins.instance
-    def scriptClass = jenkinsInstance.classLoader.loadClass('javaposse.jobdsl.dsl.DslScript')
-    def jobDslEngine = new javaposse.jobdsl.dsl.DslScriptLoader(scriptClass, jenkinsInstance).runScript(dslScript)
 }
