@@ -22,17 +22,17 @@
 
 
 // my-shared-library/vars/CreatePipelineJobs.groovy
-def call(List<String> jobNames) {
+def call(List<String> jobnames) {
     script {
         // Generate DSL code for each job
           jobDsl scriptText: """
-            pipelineJob('${jobName}') {
-                description("Pipeline for ${jobName}")
+            pipelineJob('${jobname}') {
+                description("Pipeline for ${jobname}")
                 definition {
                     cpsScm {
                         scm {
                             git {
-                                remote { url("https://github.com/SowmithaBavirisetty/${jobName}.git") }
+                                remote { url("https://github.com/SowmithaBavirisetty/${jobname}.git") }
                                 
                                 branches('master')
                                 scriptPath('Jenkinsfile')
