@@ -27,12 +27,12 @@ def call(String jobname) {
         // Generate DSL code for each job
           jobDsl scriptText: """
             pipelineJob('${jobname}') {
-                description("Pipeline for ${jobname}")
+                description("Pipeline for jobname")
                 definition {
                     cpsScm {
                         scm {
                             git {
-                                remote { url("https://github.com/SowmithaBavirisetty/${jobname}.git") }
+                                remote { url("https://github.com/SowmithaBavirisetty/jobname.git") }
                                 
                                 branches('master')
                                 scriptPath('Jenkinsfile')
