@@ -40,13 +40,13 @@ def call(List<String> jobname) {
                             }
                         }
                     }
-                
+                }
             }"""
         
         
         
 
         // No need to explicitly create the job, as the DSL plugin will apply it automatically.
-    }
+    
   }
 }
