@@ -23,6 +23,7 @@
 
 // my-shared-library/vars/CreatePipelineJobs.groovy
 def call(String jobname) {
+    return """
     script {
         // Generate DSL code for each job
           jobDsl scriptText: """
@@ -42,11 +43,6 @@ def call(String jobname) {
                     }
                 }
             }"""
-        
-        
-        
-
-        // No need to explicitly create the job, as the DSL plugin will apply it automatically.
-    
-  }
+           }
+         """
 }
