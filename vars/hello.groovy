@@ -26,7 +26,6 @@ def call(String jobname) {
     return """
     script {
         // Generate DSL code for each job
-          jobDsl scriptText: """
             pipelineJob('${jobname}') {
                 description("Pipeline for jobname")
                 definition {
@@ -42,7 +41,7 @@ def call(String jobname) {
                         }
                     }
                 }
-            }"""
+            }
            }
          """
 }
