@@ -23,7 +23,6 @@
 
 // my-shared-library/vars/CreatePipelineJobs.groovy
 def call(String jobname) {
-    return """
     script {
         // Generate DSL code for each job
             pipelineJob('${jobname}') {
@@ -42,6 +41,5 @@ def call(String jobname) {
                     }
                 }
             }
-           }
-         """
+        }
 }
