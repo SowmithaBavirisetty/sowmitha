@@ -1,9 +1,5 @@
 def call(List jobname) {
-pipeline {
-  agent any 
-  stages {
-    stage("script") {
-      steps {
+
         script {  
          
         //sh("echo ${jobname} >> display_name.txt")
@@ -34,12 +30,7 @@ pipeline {
         }
       
        }""" 
-      }
-        //sh "rm display_name.txt"
-        
-      }
-      }
-    }
+      
   }
  }
 
