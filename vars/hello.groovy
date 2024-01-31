@@ -1,5 +1,6 @@
-/*def call(List jobNames) {
+def call(List jobNames) {
     script {
+    jobDsl scriptText: """
       jobNames.each { jobName ->
         pipelineJob("prerna/Test-${jobName}") {
             definition {
@@ -14,15 +15,15 @@
                 }
             }
         } 
-    } 
+    }""" 
   } 
-}*/
+}
 
 
 
 
 // my-shared-library/vars/CreatePipelineJobs.groovy
-def call(String jobname) {
+/*def call(String jobname) {
     script {
         // Generate DSL code for each job
             pipelineJob('${jobname}') {
@@ -42,4 +43,4 @@ def call(String jobname) {
                 }
             }
         }
-}
+}*/
