@@ -20,7 +20,7 @@ def call(List jobname) {
               git {
                 remote { url(repo)  }
                 credentialsId: 'key'
-                branches('testing')
+                branches({env.BRANCH_NAME})
                 scriptPath('hi.groovy')
                 extensions { }  // required as otherwise it may try to tag the repo, which you may not want
                
