@@ -1,6 +1,6 @@
-def call(List variantName) {
+def call(List var1) {
   script {
-    for (newvar in variantName) {
+    for (newvar in var1) {
       // The "jobDsl" is the pipeline step in jenkins used to write the DSL script
       jobDsl scriptText: """
         pipelineJob("prerna/Build_${newvar}") {     // "pipelineJob" is used to create the the job of type Pipeline in jenkins
