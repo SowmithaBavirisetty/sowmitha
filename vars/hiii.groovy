@@ -3,7 +3,10 @@ def call(List var1) {
     for (newvar in var1) {
       
       jobDsl scriptText: """
-        pipelineJob("prerna/Build_${newvar}") {     
+        pipelineJob("prerna/Build_${newvar}") {   
+          parameters {
+            stringParam('BRANCH_NAME', main, 'Branch Name')
+          }
           def repo = "https://github.com/SowmithaBavirisetty/${newvar}.git"
           description("Pipeline for ${newvar}")
           definition {
@@ -20,12 +23,8 @@ def call(List var1) {
              }
           }
        }
-       def branchName = 'main'
-       queue("prerna/Build_${newvar}") {
-         parameters {
-          param('BRANCH_NAME', branchName)
-        }
-       }
+       queue("prerna/Build_${newvar}") 
+         
        
        """
       
