@@ -11,8 +11,7 @@ def call(List variantName) {
               scm {                                     // Specifies where to obtain a source code repository containing the pipeline script.
                 git {
                   remote { 
-                    url(repo) 
-                    credentials('CAT1_GHE_Full_PAT')       
+                    url(repo)        
                   }
                   branches("*/\\\${BRANCH}")
                   scriptPath('Jenkinsfile')
