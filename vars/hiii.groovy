@@ -7,7 +7,7 @@ def call(List var1) {
           def repo = "https://github.com/SowmithaBavirisetty/${newvar}.git"
           description("Pipeline for ${newvar}")
           definition {
-            cpsScm {                                         
+            cpsScm { 
               scm {                                     
                 git {
                   remote { 
@@ -20,11 +20,13 @@ def call(List var1) {
              }
           }
        }
-       queue("prerna/Build_${newvar}"){
+       def branchName = 'main'
+       queue("prerna/Build_${newvar}") {
          parameters {
-          stringParam('BRANCH_NAME', main, 'Branch Name')
+          param('BRANCH_NAME', branchName)
         }
        }
+       
        """
       
      }        
