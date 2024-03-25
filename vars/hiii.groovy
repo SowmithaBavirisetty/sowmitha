@@ -16,7 +16,7 @@ def call(List var1) {
                   remote { 
                     url(repo)        
                   }
-                  branches("*/\\\${BRANCH}")
+                  branches("*/\\\${BRANCH_NAME}")
                   scriptPath('Jenkinsfile')
                 }
                }
