@@ -22,10 +22,9 @@ def call(List var1) {
           }
           parameters {
              stringParam('BRANCH_NAME', 'main', 'Branch Name')
-        // Add more parameters as needed
          }
        }
-       queue("prerna/Build_${newvar}") 
+       
          
        
        """
