@@ -1,3 +1,7 @@
 def call(name) {
-  echo ("hi ${name}")
+node {
+    stage('build') {
+        echo("hello ${name}")
+    }
+ }
 }
